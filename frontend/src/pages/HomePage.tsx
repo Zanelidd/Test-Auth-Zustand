@@ -1,5 +1,7 @@
+import LoginPage from "./LoginRegister/LoginPage";
+
 const HomePage = () => {
-  return <h3>Home</h3>;
+  return <LoginPage />;
 };
 
 export default HomePage;
