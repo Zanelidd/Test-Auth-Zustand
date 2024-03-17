@@ -1,6 +1,12 @@
 import fastify from "fastify";
+import cors from "@fastify/cors";
 
 const server = fastify();
+
+server.register(cors, {
+  origin: true,
+  credentials: true,
+});
 
 server.get("/ping", async (request, reply) => {
   return "pong\n";
@@ -25,5 +31,18 @@ server.post(
   },
   function (request, reply) {
     reply.send("hello");
+  }
+);
+
+server.post(
+  "/register",
+  {
+    preValidation: (request, reply, done) => {
+      console.log(request.body);
+      done();
+    },
+  },
+  function (request, reply) {
+    reply.send("register");
   }
 );
