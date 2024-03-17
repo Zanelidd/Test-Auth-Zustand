@@ -13,3 +13,17 @@ server.listen({ port: 8080 }, (err, address) => {
   }
   console.log(`Server listening at ${address}`);
 });
+
+server.post(
+  "/login",
+  {
+    preValidation: (request, reply, done) => {
+      console.log(request.body);
+
+      done();
+    },
+  },
+  function (request, reply) {
+    reply.send("hello");
+  }
+);

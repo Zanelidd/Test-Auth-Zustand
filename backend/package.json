@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p tsconfig.json",
-    "start": "node index.js"
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "dev": "nodemon ./index.ts",
+    "migrate": "node ./src/migrate.ts"
   },
   "author": "",
   "license": "ISC",
@@ -15,15 +17,16 @@
     "@types/node": "^20.11.27",
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "@fastify/mysql": "^4.2.0",
     "argon2": "^0.40.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
     "mysql2": "^3.9.2",
-    "ts-node": "^10.9.2",
     "uid2": "^1.0.0",
     "zod": "^3.22.4"
   }
